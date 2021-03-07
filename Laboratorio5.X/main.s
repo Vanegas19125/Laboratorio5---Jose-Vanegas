@@ -151,7 +151,7 @@
     MOVWF CONT_D2
     RETURN
      
- ISR_CONTADOR: ;Subrutina para el contador binario
+ ISR_CONTADOR: ;interrupcion para el contador binario
     BCF INTCON, 0
     
     MOVF PORTB_ACTUAL,W
@@ -205,11 +205,11 @@
     BSF IOCB, 0
     BSF IOCB, 1 ;ACTIVAR INTERRUPCION EN PIN RB0 Y RB1
     
-    BCF STATUS, 5
+    BCF STATUS, 5 ;Banco 0
     
-    CLRF PORTA ;COLOCAR EN 0 puerto D
-    CLRF PORTB ;COLOCAR EN 0 puerto D
-    CLRF PORTC ;COLOCAR EN 0 puerto D
+    CLRF PORTA ;COLOCAR EN 0 puerto A
+    CLRF PORTB ;COLOCAR EN 0 puerto B
+    CLRF PORTC ;COLOCAR EN 0 puerto C
     CLRF PORTD ;COLOCAR EN 0 puerto D
     CLRF CONT_D1
     CLRF CONT_D2
@@ -251,7 +251,7 @@ BINDEC:
     BSF INTCON, 7
     RETURN
     
-    
+END    
     
     
     
